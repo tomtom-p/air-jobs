@@ -24,9 +24,6 @@ class ItemController extends AbstractController
      * Display item listing
      *
      * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
      */
     public function index()
     {
