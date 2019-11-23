@@ -5,6 +5,61 @@
     vertical-align: middle;
 }
 
+.text-align-middle {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+.contacts {
+    background-color: white;
+    height: 93vh;
+}
+
+.subject {
+    font-size: 11px;
+}
+
+
+
+.time {
+    font-size: 12px;
+}
+
+.contact {
+    margin-bottom: 10px;
+}
+
+.search-bar-input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100vw;
+}
+
+.lowerSize {
+    height: 50px;
+    width: 50px;
+}
+
+.no-padding {
+    padding-right: 0;
+}
+
+.my-account {
+    background-color: #BDBDBD;
+}
+
+.background-image {
+    background-image: url("/assets/images/w.jpg");
+}
+
+.welcome {
+     font-size : 15px;
+}
+
+.littleWelcome {
+    font-size: 12px;
+}
+
 .global {
-    margin: 25px;
+    padding: 25px;
 }
