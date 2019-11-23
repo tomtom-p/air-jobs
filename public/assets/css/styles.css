@@ -1,0 +1,10 @@
+.bg-grey {
+    background-color: #D8D8D8;
+    height: 93vh;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.global {
+    margin: 25px;
+}
