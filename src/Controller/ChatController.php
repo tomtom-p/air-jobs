@@ -16,10 +16,8 @@ use Model\ItemManager;
  * Class ItemController
  *
  */
-class ItemController extends AbstractController
+class ChatController extends AbstractController
 {
-
-
     /**
      * Display item listing
      *
@@ -27,86 +25,7 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager($this->getPdo());
-        $items = $itemManager->selectAll();
-
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Chat/index.html.twig', ['contact' => ['wesh', "lesang"]]);
     }
 
-
-    /**
-     * Display item informations specified by $id
-     *
-     * @param int $id
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
-    public function show(int $id)
-    {
-        $itemManager = new ItemManager($this->getPdo());
-        $item = $itemManager->selectOneById($id);
-
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
-    }
-
-
-    /**
-     * Display item edition page specified by $id
-     *
-     * @param int $id
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
-    public function edit(int $id): string
-    {
-        $itemManager = new ItemManager($this->getPdo());
-        $item = $itemManager->selectOneById($id);
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item->setTitle($_POST['title']);
-            $itemManager->update($item);
-        }
-
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
-    }
-
-
-    /**
-     * Display item creation page
-     *
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
-    public function add()
-    {
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager($this->getPdo());
-            $item = new Item();
-            $item->setTitle($_POST['title']);
-            $id = $itemManager->insert($item);
-            header('Location:/item/' . $id);
-        }
-
-        return $this->twig->render('Item/add.html.twig');
-    }
-
-
-    /**
-     * Handle item deletion
-     *
-     * @param int $id
-     */
-    public function delete(int $id)
-    {
-        $itemManager = new ItemManager($this->getPdo());
-        $itemManager->delete($id);
-        header('Location:/');
-    }
 }

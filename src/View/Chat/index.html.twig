@@ -1,13 +1,46 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Items</h1>
-    <ul>
-        {% for item in items %}
-            <li><a href="/item/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/item/add">Ajouter</a>
+    <div class="container-fluid background-image">
+        <div class="global">
+            <div class="row">
+                <div class="col-4 no-padding">
+                    <div class="my-account">
+                        <img src="/assets/images/picto_user.png" class="lowerSize" alt="">
+                    </div>
+                    <div class="search-bar">
+                        <form class="form-inline">
+                            <input class="search-bar-input" type="search" placeholder="Rechercher ou démarrer une discussion" aria-label="Search">
+                        </form>
+                    </div>
+                    <div class="contacts">
+                        {% for contacts in contact %}
+                            <div class="contact">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="/assets/images/picto_user.png" class="lowerSize" alt="">
+                                    </div>
+                                    <div class="col-5">
+                                        <p class="contactName">Pedro Alcantara</p>
+                                        <p class="subject">Vous avez manqué un appel</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="time">18 : 48</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-8 bg-grey text-center">
+                    <p class="text-align-middle welcome">Bienvenue sur Air&Jobs Chat</p>
+                    <p class="littleWelcome">Veuillez sélectionner une conversation pour commencer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 {% endblock %}
